@@ -19,7 +19,7 @@ export default function Navbar() {
           style={{ background: 'rgb(183, 115, 57)' }}
         >
           <Link
-            to="/connect-wallet"
+            to="/connect"
             target="_blank"
             rel="noopener noreferrer"
             className="flex justify-center items-center gap-2 flex-col sm:flex-row sm:gap-6"

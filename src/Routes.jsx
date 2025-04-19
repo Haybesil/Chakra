@@ -4,16 +4,13 @@ import Home from "./pages/Home";
 
 
 
-
-
-
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Landing/>,
     },
     {
-        path: '/connect-wallet',
+        path: '/connect',
         element: <Home/>
         
     },
