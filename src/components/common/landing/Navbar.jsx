@@ -13,7 +13,6 @@ export default function Navbar() {
         >
           <Link
             to="/connect"
-            target="_blank"
             rel="noopener noreferrer"
             className="flex justify-center items-center gap-2 flex-col sm:flex-row sm:gap-6"
           >
@@ -159,7 +158,6 @@ export default function Navbar() {
           {/* Launch App Button - Desktop */}
           <Link
             to="/connect"
-            target="_blank"
             className="max-lg:hidden bg-[#451e17] text-[#F5F1E6] rounded-full cursor-pointer items-center justify-center h-8 px-4 py-[6px] text-center text-sm font-medium leading-tight font-manrope"
             rel="noreferrer"
           >
@@ -172,8 +170,7 @@ export default function Navbar() {
           <div className="lg:hidden max-lg:flex justify-end items-center gap-5">
             {/* Launch App Button - Mobile */}
             <Link
-              to="/connect"
-              target="_blank"
+              to="/connect" 
               className="bg-[#451e17] text-[#F5F1E6] rounded-full cursor-pointer items-center justify-center h-8 px-4 py-[6px] text-center text-sm font-medium leading-tight font-manrope"
               rel="noreferrer"
             >

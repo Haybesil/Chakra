@@ -3,7 +3,6 @@ import Landing from "./pages/Landing";
 import Home from "./pages/Home";
 
 
-
 const router = createBrowserRouter([
     {
         path: '/',
