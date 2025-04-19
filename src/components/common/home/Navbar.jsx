@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { WalletMinimal } from 'lucide-react';
 import Modal from '../base/Modal';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   const [toggleConnect, setToggleConnect] = useState(false);
@@ -14,21 +15,21 @@ export default function Navbar() {
     <div>
       <header className="pt-3">
         <div
-          className="text-[#F2EEE3] h-[44px] max-sm:h-[70px] text-center font-inter justify-center fixed top-0 w-full z-30 flex items-center p-3"
+          className="text-white h-14 sm:h-11 text-center font-inter justify-center fixed top-0 w-full z-30 flex items-center p-3"
           style={{ background: 'rgb(183, 115, 57)' }}
         >
-          <a
-            href="https://btcstaking.babylonlabs.io/"
+          <Link
+            to="/connect-wallet"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex justify-center items-center gap-6 max-sm:flex-col max-sm:gap-[6px]"
+            className="flex justify-center items-center gap-2 flex-col sm:flex-row sm:gap-6"
           >
-            <div className="text-[#f2eee3] text-sm font-medium font-inter leading-tight">
+            <div className="text-white text-sm font-medium font-inter leading-tight">
               Gain priority access by staking with Chakra today!
             </div>
-            <div className="flex justify-center items-center gap-1 text-[#f2eee3] text-sm font-medium font-inter leading-tight">
+            <div className="flex justify-center items-center gap-1 text-white text-sm font-medium font-inter leading-tight">
               Stake Now
-              <div style={{ height: '16px' }}>
+              <div className="h-4">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="17"
@@ -48,7 +49,7 @@ export default function Navbar() {
                 </svg>
               </div>
             </div>
-          </a>
+          </Link>
         </div>
         <div className="w-full px-10 max-sm:px-6 z-10 bg-[#fff] pt-[44px] max-sm:pt-[70px]">
           <div className="flex items-center justify-between max-w-[1280px] max-sm:max-w-full m-auto py-4 max-sm:py-4 z-10">
