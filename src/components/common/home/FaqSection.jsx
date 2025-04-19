@@ -1,135 +1,129 @@
-import { ChevronDown, ChevronUp } from 'lucide-react';
-import React, { useState } from 'react';
-
-const FAQSection = () => {
-  const [opened, setOpened] = useState(2);
-
-  const handleOpen = (i) => {
-    setOpened(opened === i ? 0 : i);
-  };
+import { useState } from "react"
+const FAQItem = ({ title, children }) => {
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <section className="bg-accent2 relative overflow-hidden">
-      <div className="max-lg:hidden w-[350px] h-[350px] absolute bottom-[-6%] blur-[85px] left-[-12%] bg-accent1/50"></div>
-      <img
-        className="max-lg:hidden absolute right-[2%] bottom-[3%]"
-        src="/images/faq-box.png"
-        alt=""
-      />
-      <div className="container relative z-[2] pt-[70px] pb-[70px] grid grid-cols-12 gap-6 xl:gap-10 items-center">
-        {/* Left: Form */}
-        <div className="fade_up_anim col-span-12 lg:col-span-5 p-4 lg:p-6 xl:p-8 xxl:px-10 bg-accent5 border border-accent4 rounded-xl mx-2 lg:mx-0 lg:ml-28">
-          <p className="lg:text-[30px] text-neutral2 font-semibold mb-3">FAQ</p>
-          <h2 className="mb-4 lg:text-[25px] font-semibold text-neutral1">
-            Your questions{' '}
-            <span className="h2 underline text-primary">answered.</span>
-          </h2>
-          <p className="text-neutral2 mb-6 text-base font-medium xl:mb-10">
-            Let's do our best to answer your most frequently asked questions.
-            Can't find the answer you're looking for? Please chat to our
-            friendly team!
-          </p>
-          <form method="post" action="" className="form">
-            <label
-              htmlFor="email"
-              className="mb-3 font-medium block text-neutral2"
+    <div className="w-full px-4 py-3 sm:px-6 sm:py-4 flex flex-col gap-1.5 border border-zinc-200 bg-white rounded-xl sm:rounded-2xl shadow-sm">
+      <div className="flex justify-between items-start cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
+        <div className="text-zinc-900 text-xs sm:text-sm font-semibold w-[85%] sm:w-[90%]">{title}</div>
+        <div className="min-w-[20px] min-h-[20px] sm:w-[22px] sm:h-[22px] flex justify-center items-center border border-zinc-200 bg-white rounded-md">
+          <div className="h-3 sm:h-3.5">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 14 14"
+              fill="none"
+              className={`transform transition-transform ${isOpen ? "rotate-180" : ""}`}
             >
-              Your Email*
-            </label>
-            <input
-              type="text"
-              placeholder="Your Email"
-              name="email"
-              className="w-full focus:border-primary bg-transparent border border-accent4 p-3 xl:p-4 rounded-xl mb-5"
-              required
-            />
-            <label
-              htmlFor="message"
-              className="mb-3 font-medium block text-neutral2"
-            >
-              Your Message*
-            </label>
-            <textarea
-              name="message"
-              placeholder="Your Message..."
-              rows="4"
-              className="w-full focus:border-primary bg-transparent border border-accent4 p-3 xl:p-4 rounded-xl mb-5"
-              required
-            />
-            <button
-              type="submit"
-              className="py-3 px-5 w-full rounded-xl text-lg bg-primary font-medium text-neutral1"
-            >
-              Submit
-            </button>
-          </form>
-        </div>
-
-        {/* Right: FAQ Accordions */}
-        <div className="col-span-12 lg:col-span-7 p-4 lg:p-6 xl:p-8 xxl:px-10 bg-accent5 border border-accent4 rounded-xl flex flex-col gap-4 xxl:gap-7 text-neutral2">
-          {[
-            {
-              id: 1,
-              question:
-                'How can I get help if I encounter an issue with my wallet?',
-              answer:
-                "If you face any wallet-related problems, our platform offers 24/7 support. Our dedicated team is always available to assist you with troubleshooting and resolving issues, whether it's a transaction failure, connection problem, or configuration error. Simply reach out through the support portal, and our experts will guide you every step of the way.",
-            },
-            {
-              id: 2,
-              question:
-                'What measures do you take to ensure the security of my wallet and transactions?',
-              answer:
-                "We understand the importance of trust and security when it comes to financial platforms. That's why we offer a trusted and secure environment. Our platform uses industry-standard encryption protocols and multi-layer security systems to safeguard your wallet and all transactions. Additionally, we continuously monitor for potential threats to ensure that your assets are always protected.",
-            },
-            {
-              id: 3,
-              question: 'Is your platform easy to use for beginners?',
-              answer:
-                'Yes! Our platform is designed with user-friendly features that make it easy for anyone, regardless of technical experience, to navigate and use effectively. We provide clear, simple instructions for connecting your wallet, performing transactions, and troubleshooting common issues. Plus, our support team is always available to assist if needed.',
-            },
-            {
-              id: 4,
-              question:
-                'Can I access your services from anywhere in the world?',
-              answer:
-                "Absolutely! Our platform offers global accessibility, meaning you can access your wallet and perform transactions no matter where you are in the world. Whether you're at home, traveling abroad, or working remotely, our services are available 24/7, allowing you to stay connected and manage your assets seamlessly.",
-            },
-          ].map(({ id, question, answer }) => (
-            <div
-              key={id}
-              className={`fade_up_anim p-4 rounded-xl border border-accent4 cursor-pointer transition-colors duration-300 ease-in-out ${
-                opened === id ? "bg-accent6" : ""
-              }`}
-              onClick={() => handleOpen(id)}
-            >
-              <div className="flex justify-between items-center">
-                <p className="text-sm lg:text-base xxl:text-xl font-medium">
-                  {question}
-                </p>
-                <span
-                  className={`size-8 md:size-10 rounded-full f-center text-lg md:text-2xl duration-300 flex items-center justify-center ${
-                    opened === id ? 'bg-primary rotate-180' : 'bg-accent6'
-                  }`}
-                >
-                  {opened === id ? <ChevronUp /> : <ChevronDown />}
-                </span>
-              </div>
-              {opened === id && (
-                <div
-                  className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                    opened === id ? 'max-h-[500px] mt-3' : 'max-h-0'
-                  }`}
-                >
-                  <p className="text-sm lg:text-base xxl:text-lg">{answer}</p>
-                </div>
-              )}
-            </div>
-          ))}
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M2.50419 4.83785C2.732 4.61004 3.10134 4.61004 3.32915 4.83785L7 8.5087L10.6709 4.83785C10.8987 4.61004 11.268 4.61004 11.4958 4.83785C11.7236 5.06565 11.7236 5.435 11.4958 5.6628L7.41248 9.74614C7.18468 9.97394 6.81533 9.97394 6.58752 9.74614L2.50419 5.6628C2.27638 5.435 2.27638 5.06565 2.50419 4.83785Z"
+                fill="#18181B"
+              />
+            </svg>
+          </div>
         </div>
       </div>
-    </section>
-  );
-};
+      <div className={`text-zinc-600 text-xs sm:text-sm font-normal w-full mt-1 ${isOpen ? "block" : "hidden"}`}>
+        {children}
+      </div>
+    </div>
+  )
+}
 
-export default FAQSection;
+export default function FAQSection() {
+  return (
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-8 sm:py-10 md:py-14">
+      <div className="text-zinc-900 text-sm sm:text-base font-semibold leading-tight mb-4 sm:mb-6">FAQ</div>
+
+      <div className="flex flex-col gap-2 sm:gap-3">
+        <FAQItem title="What is Chakra?">
+          Chakra Network is a high-performance middleware chain designed as a cross-chain settlement layer for major
+          blockchains. Our mission is to securely bridge and efficiently settle native BTC and BTC-derived assets (e.g.,
+          Wrapped BTC and ERC-20 LST/LRTs) across diverse ecosystems, unlocking new opportunities in yield-generating
+          scenarios.
+        </FAQItem>
+
+        <FAQItem title="Can I stake Bitcoin on Babylon through Chakra?">
+          <div className="flex flex-col gap-3 sm:gap-4">
+            <div>
+              Currently, Chakra has paused its Bitcoin Staking Pool for Babylon as we undergo rebranding and prepare to
+              launch our new settlement services, cross-chain mining feature, and upcoming Vault product. However,
+              Chakra continues to serve as a top Finality Provider for Babylon Bitcoin Staking, securing over $122.05M
+              TVL. You can still stake Bitcoin directly on Babylon and select Chakra as your Finality Provider for
+              enhanced security and trust.
+            </div>
+            <div>
+              For funds already in the Chakra Bitcoin Staking Pool, users have two options: withdraw, or keep them with
+              Chakra for automatic transfer to the upcoming Vault product within the Chakra ecosystem, where you can
+              unlock additional yield opportunities.
+            </div>
+          </div>
+        </FAQItem>
+
+        <FAQItem title="What fees are associated with withdrawing BTC from Chakra?">
+          <div className="flex flex-col gap-3 sm:gap-4">
+            <div>
+              BTC withdrawals will be processed on the BNB Chain, and users will only need to cover the BNB transaction
+              costs, which are less than 0.00007 BNB per transaction.
+            </div>
+            <div>
+              To minimize expenses for our users, Chakra has waived all administration fees. We remain committed to
+              providing a cost-effective and user-friendly experience.
+            </div>
+          </div>
+        </FAQItem>
+
+        <FAQItem title="If I keep my staked BTC with Chakra, what will be the return?">
+          Your returns will come from multiple yield streams: you will earn Babylon Points, allocated proportionally
+          based on Babylon's Point System, and Chakra Pranas, where every 0.0001 BTC staked earns you 1 Prana daily,
+          refreshed via snapshots in the Chakra Staking dApp. Additionally, with the launch of the Vault product, your
+          staked BTC will participate in cross-chain mining, unlocking more layers of yield across EVM and non-EVM
+          ecosystems. For more details on Babylon Points, visit:{" "}
+          <a
+            href="https://babylonlabs.io/blog"
+            target="_blank"
+            className="text-blue-500 text-xs sm:text-sm font-normal leading-tight"
+            rel="noreferrer"
+          >
+            https://babylonlabs.io/blog.
+          </a>
+        </FAQItem>
+
+        <FAQItem title="What is Prana, and can it be redeemed in the future?">
+          <div className="flex flex-col gap-3 sm:gap-4">
+            <div>
+              Prana is a reward point system for users staking Bitcoin on Chakra, serving as both an early participation
+              credential and a key incentive within the Chakra ecosystem. While the exchange details for Prana have not
+              yet been announced, it may have additional use cases or reward formats in the future.
+            </div>
+            <div>
+              We will continue to enhance Prana's value based on ecosystem growth and community feedback. Keep
+              participating in our campaigns to earn more Prana—exciting opportunities await!
+            </div>
+          </div>
+        </FAQItem>
+
+        <FAQItem title="What are Chakra's future plans?">
+          <div className="flex flex-col gap-3 sm:gap-4">
+            <div>
+              Chakra is dedicated to building a robust modular settlement network that unlocks Bitcoin's liquidity and
+              enables seamless cross-chain settlements through our innovative Proof of Assets mechanism.
+            </div>
+            <div>
+              Looking ahead, we plan to launch the Vault product in our ecosystem to unlock cross-chain mining and
+              deliver multi-layered yield opportunities for BTC holders. At the same time, we are deepening our
+              strategic collaboration with Babylon to drive broader adoption and integration.
+            </div>
+            <div>
+              Chakra will continue to power true omnichain liquidity infrastructure and accelerate the growth of
+              multi-chain ecosystems. Stay tuned for exciting updates as we advance our rebranding journey!
+            </div>
+          </div>
+        </FAQItem>
+      </div>
+    </div>
+  )
+}

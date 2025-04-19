@@ -160,14 +160,14 @@ export default function Modal({ open, onClose }) {
           <>
             <div
               ref={modalRef}
-              className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+              className="fixed inset-0 bg-[black] bg-opacity-50 flex items-center justify-center z-50"
             >
               <div
                 ref={modalRef}
-                className="bg-[#09131d] text-white rounded-xl max-w-4xl w-full mx-4 shadow-lg"
+                className="bg-[#bb6b24] text-white rounded-xl max-w-4xl w-full mx-4 shadow-lg"
               >
                 <div className="p-6">
-                  <div className="flex justify-center bg-[#17212a] p-3 rounded-lg mb-6">
+                  <div className="flex justify-center bg-[#b77339] p-3 rounded-lg mb-6">
                     <input
                       placeholder="Search wallet..."
                       className="bg-transparent border border-gray-50 text-white placeholder:text-slate-300 placeholder:font-medium w-[90%] lg:w-[60%] py-4 rounded-[23px] pl-5"
@@ -178,7 +178,7 @@ export default function Modal({ open, onClose }) {
                       <div
                         key={idx}
                         onClick={() => handleWalletClick(wallet)}
-                        className="hover:bg-[#334155] border border-slate-800 cursor-pointer flex flex-col items-center justify-center p-4 rounded-xl transition-colors"
+                        className="hover:bg-[#b77339] border border-[#d67b2b] cursor-pointer flex flex-col items-center justify-center p-4 rounded-xl transition-colors"
                       >
                         <img
                           src={wallet.img}

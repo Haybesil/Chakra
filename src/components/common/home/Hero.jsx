@@ -1,155 +1,129 @@
-import React, { useState } from 'react';
-import Navbar from './Navbar';
-import Modal from '../base/Modal';
+"use client"
+
+import { useState } from "react"
+import Navbar from "./Navbar"
+import Modal from "../base/Modal"
+import { WalletMinimal } from "lucide-react"
 
 export default function Hero() {
-  const [toggleConnect, setToggleConnect] = useState(false);
+  const [toggleConnect, setToggleConnect] = useState(false)
 
   const openModal = () => {
-    setToggleConnect(true);
-  };
+    setToggleConnect(true)
+  }
 
   return (
     <>
-      <div className="hero ">
+      <div className="hero w-full">
         <Navbar />
-        <section
-          id="conWallet"
-          className="relative overflow-hidden bg-black border border-black/20"
-        >
-          <img
-            className="max-xxl:hidden absolute left-0 top-8 blur-3xl opacity-70"
-            src="/images/ellipse-1.png"
-            alt=""
-          />
-          <img
-            className="max-xl:hidden absolute right-0 bottom-16  blur-3xl shadow-2xl opacity-100"
-            src="/images/ellipse-2.png"
-            alt=""
-          />
-          <img
-            className="max-xl:hidden absolute right-0 bottom-16  shadow-2xl opacity-70"
-            src="/images/ellipse-2.png"
-            alt=""
-          />
 
-          <img
-            className="max-xl:hidden rocket absolute left-10 bottom-8 z-[2] mb-5"
-            src="/images/rocket.png"
-            alt=""
-            style={{ transform: 'translate(-100px, 100px)' }}
-          />
-          <img
-            className="max-md:hidden absolute right-5 top-12 animate-spin"
-            src="/images/globe.png"
-            alt=""
-          />
-          <img
-            className="absolute left-[5%] bottom-[27%] animate-spin"
-            src="/images/bitcoin.png"
-            alt=""
-          />
-          <img
-            className="absolute right-[12%] top-[50%] animate-spin"
-            src="/images/coin-1.png"
-            alt=""
-          />
-          <div className="max-lg:hidden w-[250px] h-[204px] xxl:w-[404px] xxl:h-[404px] absolute bottom-[-15%] blur-[85px] left-[-12%] bg-[rgba(240,185,11,0.50)]"></div>
-          <div className="max-lg:hidden w-[250px] xxl:w-[350px] h-[250px] xxl:h-[350px] absolute top-[6%] blur-[85px] left-[-12%] bg-primary/50"></div>
-          <div className="max-lg:hidden w-[250px] xxl:w-[350px] h-[250px] xxl:h-[350px] absolute bottom-[6%] blur-[85px] right-[-8%] bg-accent1/50"></div>
+        {/* TVL Card - Responsive container */}
+        <div className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24 py-4 md:py-6">
+          <div className="bg-white rounded-2xl border border-zinc-200 p-4 md:p-6 w-full max-w-4xl mx-auto">
+            <div className="flex justify-between items-center gap-2">
+              {/* Left section: Icon + Label */}
+              <div className="inline-flex items-center justify-start gap-1.5">
+                <div className="text-[#E21717]">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M8 2.66732C6.89543 2.66732 6 3.56275 6 4.66732C6 5.77189 6.89543 6.66732 8 6.66732C9.10457 6.66732 10 5.77189 10 4.66732C10 3.56275 9.10457 2.66732 8 2.66732ZM4.66667 4.66732C4.66667 2.82637 6.15905 1.33398 8 1.33398C9.84095 1.33398 11.3333 2.82637 11.3333 4.66732C11.3333 6.50827 9.84095 8.00065 8 8.00065C6.15905 8.00065 4.66667 6.50827 4.66667 4.66732ZM8 10.0007C6.18346 10.0007 4.64812 11.2121 4.1611 12.8726C4.12963 12.9799 4.153 13.0714 4.23198 13.1577C4.32078 13.2547 4.47787 13.334 4.66667 13.334H11.3333C11.5221 13.334 11.6792 13.2547 11.768 13.1577C11.847 13.0714 11.8704 12.9799 11.8389 12.8726C11.3519 11.2121 9.81655 10.0007 8 10.0007ZM2.88167 12.4973C3.53073 10.2844 5.57566 8.66732 8 8.66732C10.4243 8.66732 12.4693 10.2844 13.1183 12.4973C13.2941 13.0966 13.113 13.6629 12.7517 14.0578C12.4001 14.442 11.8809 14.6673 11.3333 14.6673H4.66667C4.11909 14.6673 3.59991 14.442 3.24835 14.0578C2.88697 13.6629 2.70589 13.0966 2.88167 12.4973Z"
+                      fill="#E21717"
+                    />
+                  </svg>
+                </div>
+                <div className="text-zinc-500 text-sm font-normal leading-[20px]">Your Confirmed TVL</div>
+              </div>
 
-          <div className="container pt-[80px] pb-[70px] grid grid-cols-12 gap-6 items-center pl-1 lg:pl-28">
-            <div className="col-span-12 lg:col-span-6 relative z-[2] max-lg:flex max-lg:flex-col max-lg:items-center max-lg:text-center">
-              <h2 className="display-4 text-[2.25rem] lg:text-[3rem] font-bold  mb-4 fade_up_anim text-white text-center lg:text-left px-5 lg:px-0">
-                Wallet Issues?{' '}
-                <span className="text-primary display-4  font-bold underline">
-                  We've Got You
-                </span>{' '}
-                <span className="text-secondary display-4  font-bold underline text-[#c6990b]">
-                  Covered!
-                </span>
-              </h2>
-              <p
-                className="mb-8 xl:mb-10 max-w-md lg:text-sm fade_up_anim text-white font-medium"
-                data-delay="0.2"
-              >
-                From Wallet Recovery to Blockchain Troubleshooting, We Provide
-                Reliable Solutions for All Your Crypto Wallet Needs.
-              </p>
-              <div
-                className="flex justify-center gap-6 fade_up_anim  w-fit border-[1px] border-[rgb(58,150,255)] rounded-[50px]"
-                data-delay="0.4"
-              >
-                <button
-                  id="ConnectNow"
-                  onClick={() => {
-                    openModal();
-                  }}
-                  className="btn-primary bg-[rgb(58,150,255)] m-[2px] text-white py-2 px-3 rounded-[50px] hover:bg-transparent hover:text-white transition-all duration-300 ease-in-out"
-                >
-                  Connect Wallet
-                </button>
-              </div>
-            </div>
-
-            <div
-              className="col-span-12 lg:col-span-5 lg:col-start-8 relative max-lg:flex max-lg:justify-center fade_up_anim"
-              data-delay=".5"
-            >
-              <img src="/images/hero.png" className="relative z-[3]" alt="" />
-              <div className="w-[280px] h-[280px] md:w-[350px] md:h-[350px] absolute top-[6%] blur-[85px] left-0 bg-primary/50"></div>
-            </div>
-
-            <div className="col-span-12 gap-6 grid grid-cols-12 xl:divide-x divide-[rgba(255,255,255,0.8)] pt-[100px] relative z-[2] pl-3 lg:pl-0">
-              <div className="col-span-6 md:col-span-3">
-                <h3 className="h3 mb-3 text-lg lg:text-[25px] font-bold text-white">
-                  <span
-                    id="country"
-                    dangerouslySetInnerHTML={{ __html: '200+' }}
-                  />
-                </h3>
-                <p className="text-[rgba(255,255,255,0.8)] text-base lg:text-[18px]">
-                  Countries Covered
-                </p>
-              </div>
-              <div className="col-span-6 md:col-span-3 xl:pl-8">
-                <h3 className="h3 mb-3 text-lg lg:text-[25px] text-white">
-                  <span
-                    id="investor"
-                    dangerouslySetInnerHTML={{ __html: '30+' }}
-                  />
-                </h3>
-                <p className="text-[rgba(255,255,255,0.8)] text-base lg:text-[18px]">
-                  Wallets Types
-                </p>
-              </div>
-              <div className="col-span-6 md:col-span-3 xl:pl-8">
-                <h3 className="h3 mb-3 text-lg lg:text-[25px] text-white">
-                  <span
-                    id="coin"
-                    dangerouslySetInnerHTML={{ __html: '700+' }}
-                  />
-                </h3>
-                <p className="text-[rgba(255,255,255,0.8)] text-base lg:text-[18px]">
-                  Cryptocurrencies
-                </p>
-              </div>
-              <div className="col-span-6 md:col-span-3 xl:pl-8">
-                <h3 className="h3 mb-3 text-lg lg:text-[25px] text-white">
-                  $
-                  <span
-                    id="volume"
-                    dangerouslySetInnerHTML={{ __html: '1.36' }}
-                  />{' '}
-                  Billion
-                </h3>
-                <p className="text-[rgba(255,255,255,0.8)] text-base lg:text-[18px]">
-                  Recovered Funds!
-                </p>
+              {/* Right section: Value + Icon */}
+              <div className="inline-flex items-center justify-end gap-2">
+                <div className="text-zinc-900 text-lg sm:text-xl md:text-2xl font-semibold leading-tight">0</div>
+                <img
+                  src="/slides/mainnetBTCIcon.svg"
+                  alt="BTC Icon"
+                  width="29"
+                  height="29"
+                  className="w-5 h-5 sm:w-6 sm:h-6"
+                  loading="lazy"
+                  decoding="async"
+                  style={{ color: "transparent" }}
+                />
               </div>
             </div>
           </div>
-        </section>
+        </div>
+
+        {/* Airdrop Card - Responsive container */}
+        <div className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24 py-4 md:py-6">
+          <div className="p-6 md:p-8 bg-[#B77339] rounded-3xl shadow-sm relative w-full max-w-4xl mx-auto overflow-hidden">
+            {/* Decorative images - hidden on small screens, positioned relative to container on larger screens */}
+            <div className="hidden md:block">
+              <img
+                alt=""
+                loading="lazy"
+                width="108"
+                height="86"
+                decoding="async"
+                className="absolute left-8 top-8 w-16 lg:w-[108px]"
+                src="/slides/leftAirdrop.png"
+                style={{ color: "transparent" }}
+              />
+              <img
+                alt=""
+                loading="lazy"
+                width="108"
+                height="85"
+                decoding="async"
+                className="absolute right-8 top-8 w-16 lg:w-[108px]"
+                src="/slides/rightAirdrop.png"
+                style={{ color: "transparent" }}
+              />
+            </div>
+
+            <div className="flex flex-col gap-6 md:gap-8 items-center justify-center">
+              {/* Header text with sparkles icon */}
+              <div className="inline-flex justify-start items-center gap-1.5">
+                <img
+                  alt=""
+                  loading="lazy"
+                  width="21"
+                  height="20"
+                  decoding="async"
+                  className="w-5"
+                  src="/slides/sparkles.svg"
+                  style={{ color: "transparent" }}
+                />
+                <div className="text-[#fef9c3] text-sm font-normal leading-tight font-inter">
+                  Babylon airdrop registration is now open.
+                </div>
+              </div>
+
+              {/* Connect wallet section */}
+              <div className="flex flex-col gap-3 justify-center items-center">
+                <div className="text-white text-xl sm:text-2xl font-medium leading-7 font-loraItalic text-center">
+                  Connect your wallet
+                </div>
+                <div className="text-center text-white text-sm font-normal leading-tight font-inter">
+                  If you are eligible, we will collect your
+                  <br className="hidden sm:block" /> Babylon wallet after verifying your identity.
+                </div>
+              </div>
+
+              {/* Button */}
+              <div className="w-full flex justify-center">
+                <button
+                  onClick={openModal}
+                  type="button"
+                  className="flex justify-center items-center gap-1 text-sm text-white bg-[#451e17] px-8 sm:px-12 rounded-full py-2 hover:opacity-90 transition-all"
+                >
+                  <WalletMinimal size={15} />
+                  <p>Connect Wallet</p>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       {toggleConnect && (
@@ -158,5 +132,5 @@ export default function Hero() {
         </div>
       )}
     </>
-  );
+  )
 }
