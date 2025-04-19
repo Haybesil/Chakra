@@ -1,15 +1,15 @@
-import React,{ useState } from "react"
-import { Link } from "react-router-dom"
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <div>
       <header className="pt-3">
         <div
           className="text-[#F2EEE3] h-[44px] max-sm:h-[70px] text-center font-inter justify-center fixed top-0 w-full z-30 flex items-center p-3"
-          style={{ background: "rgb(183, 115, 57)" }}
+          style={{ background: 'rgb(183, 115, 57)' }}
         >
           <a
             href="https://btcstaking.babylonlabs.io/"
@@ -22,8 +22,14 @@ export default function Navbar() {
             </div>
             <div className="flex justify-center items-center gap-1 text-[#f2eee3] text-sm font-medium font-inter leading-tight">
               Stake Now
-              <div style={{ height: "16px" }}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+              <div style={{ height: '16px' }}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="17"
+                  height="16"
+                  viewBox="0 0 17 16"
+                  fill="none"
+                >
                   <g id="System / cheveron-right">
                     <path
                       id="Shape"
@@ -44,7 +50,13 @@ export default function Navbar() {
             <a className="w-full" href="/home">
               {/* Desktop Logo */}
               <div className="max-lg:hidden">
-                <svg xmlns="http://www.w3.org/2000/svg" width="115" height="32" viewBox="0 0 115 32" fill="none">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="115"
+                  height="32"
+                  viewBox="0 0 115 32"
+                  fill="none"
+                >
                   <g id="Logo / Style I">
                     <path
                       id="Union"
@@ -69,7 +81,13 @@ export default function Navbar() {
 
               {/* Mobile Logo */}
               <div className="lg:hidden">
-                <svg xmlns="http://www.w3.org/2000/svg" width="144" height="40" viewBox="0 0 144 40" fill="none">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="144"
+                  height="40"
+                  viewBox="0 0 144 40"
+                  fill="none"
+                >
                   <g id="Logo / Style I">
                     <path
                       id="Union"
@@ -97,27 +115,42 @@ export default function Navbar() {
           {/* Navigation Links - Desktop Only */}
           <div className="flex gap-8 max-lg:gap-4 max-lg:hidden">
             <div>
-              <a className="text-[#451e17] text-base font-normal font-inter leading-tight" href="/home">
+              <a
+                className="text-[#451e17] text-base font-normal font-inter leading-tight"
+                href="/home"
+              >
                 Home
               </a>
             </div>
             <div>
-              <a className="text-[#451e17] text-base font-normal font-inter leading-tight" href="/community">
+              <a
+                className="text-[#451e17] text-base font-normal font-inter leading-tight"
+                href="/community"
+              >
                 Community
               </a>
             </div>
             <div>
-              <a className="text-[#451e17] text-base font-normal font-inter leading-tight" href="/ecosystem">
+              <a
+                className="text-[#451e17] text-base font-normal font-inter leading-tight"
+                href="/ecosystem"
+              >
                 Ecosystem
               </a>
             </div>
             <div>
-              <a className="text-[#451e17] text-base font-normal font-inter leading-tight" href="/blog">
+              <a
+                className="text-[#451e17] text-base font-normal font-inter leading-tight"
+                href="/blog"
+              >
                 Blog
               </a>
             </div>
             <div>
-              <a className="text-[#451e17] text-base font-normal font-inter leading-tight" href="/careers">
+              <a
+                className="text-[#451e17] text-base font-normal font-inter leading-tight"
+                href="/careers"
+              >
                 Careers
               </a>
             </div>
@@ -130,25 +163,36 @@ export default function Navbar() {
             className="max-lg:hidden bg-[#451e17] text-[#F5F1E6] rounded-full cursor-pointer items-center justify-center h-8 px-4 py-[6px] text-center text-sm font-medium leading-tight font-manrope"
             rel="noreferrer"
           >
-            <div className="text-[#fff] text-sm font-bold font-manrope leading-tight">Withdraw</div>
+            <div className="text-[#fff] text-sm font-bold font-manrope leading-tight">
+              Withdraw
+            </div>
           </Link>
 
           {/* Mobile Menu */}
           <div className="lg:hidden max-lg:flex justify-end items-center gap-5">
             {/* Launch App Button - Mobile */}
-            <a
-              href="https://app.chakrachain.io/"
+            <Link
+              to="/connect-wallet"
               target="_blank"
               className="bg-[#451e17] text-[#F5F1E6] rounded-full cursor-pointer items-center justify-center h-8 px-4 py-[6px] text-center text-sm font-medium leading-tight font-manrope"
               rel="noreferrer"
             >
               Withdraw
-            </a>
+            </Link>
 
             {/* Hamburger Menu */}
             <div>
-              <div className="cursor-pointer" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <div
+                className="cursor-pointer"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                >
                   <path
                     d="M2.66669 6H29.3334M2.66669 16H29.3334M2.66669 26H29.3334"
                     stroke="#121212"
@@ -167,8 +211,17 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <div className="fixed inset-0 bg-white z-40 pt-[70px]">
           {/* Close Button */}
-          <div className="absolute top-5 right-5 cursor-pointer" onClick={() => setMobileMenuOpen(false)}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <div
+            className="absolute top-5 right-5 cursor-pointer"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+              fill="none"
+            >
               <path
                 d="M24 8L8 24M8 8L24 24"
                 stroke="#451e17"
@@ -225,5 +278,5 @@ export default function Navbar() {
         </div>
       )}
     </div>
-  )
+  );
 }
